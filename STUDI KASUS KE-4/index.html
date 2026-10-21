@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studi Kasus Machine Learning</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><p class="eyebrow">STUDI KASUS PERTEMUAN / ZOOM KE-4</p><h1>Prediksi Kelulusan Tugas</h1>
+<p>Contoh klasifikasi sederhana menggunakan algoritma K-Nearest Neighbors (KNN) dengan JavaScript.</p></header>
+<main>
+<div class="notice"><b>Data latihan:</b> dataset di halaman ini dibuat untuk pembelajaran, bukan data mahasiswa sungguhan dan bukan model prediksi akademik yang tervalidasi.</div>
+<section class="cards">
+<article><span>Jumlah data latih</span><strong id="trainCount">0</strong></article>
+<article><span>Akurasi uji sederhana</span><strong id="accuracy">-</strong></article>
+<article><span>Metode</span><strong>KNN</strong></article>
+</section>
+<section class="panel">
+<h2>Masukkan data untuk diprediksi</h2>
+<p class="muted">Masukkan jumlah jam belajar dan persentase kehadiran. Model akan membandingkan data baru dengan contoh yang paling mirip.</p>
+<form id="predictForm">
+<div class="form-grid">
+<label>Jam belajar per minggu<input id="hours" type="number" min="0" max="40" step="0.5" value="8" required></label>
+<label>Kehadiran (%)<input id="attendance" type="number" min="0" max="100" step="1" value="85" required></label>
+<label>Jumlah tetangga (K)<select id="k"><option>1</option><option selected>3</option><option>5</option></select></label>
+</div>
+<button type="submit">Prediksi hasil</button>
+</form>
+<div id="result" class="result" aria-live="polite">Masukkan data lalu klik Prediksi hasil.</div>
+</section>
+<section class="panel">
+<h2>Contoh data latih</h2>
+<p class="muted">Data contoh dipakai model untuk mempelajari pola sederhana antara jam belajar, kehadiran, dan hasil.</p>
+<div class="table-wrap"><table><thead><tr><th>Jam belajar</th><th>Kehadiran</th><th>Label</th></tr></thead><tbody id="trainingRows"></tbody></table></div>
+</section>
+<section class="panel">
+<h2>Bagaimana evaluasinya?</h2>
+<p id="evaluation"></p>
+<p class="muted">Akurasi dihitung pada data uji kecil yang dipisahkan dari data latih. Karena jumlah data sedikit dan dibuat untuk latihan, angka akurasi ini tidak bisa dianggap sebagai ukuran performa di dunia nyata.</p>
+</section>
+<section class="panel">
+<h2>Alur machine learning</h2>
+<ol><li>Siapkan data contoh dan label.</li><li>Pisahkan data latih dan data uji.</li><li>Latih model KNN dengan menyimpan contoh berlabel.</li><li>Prediksi label berdasarkan tetangga terdekat.</li><li>Evaluasi prediksi pada data uji.</li></ol>
+</section>
+</main><footer>Proyek pembelajaran • HTML, CSS, JavaScript</footer><script src="app.js"></script>
+</body></html>
