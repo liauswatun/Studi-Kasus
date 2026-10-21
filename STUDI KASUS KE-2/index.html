@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulasi Pengelolaan HPC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <p class="eyebrow">STUDI KASUS ZOOM KE-2</p>
+    <h1>Simulasi Pengelolaan HPC</h1>
+    <p>Simulasi antrean pekerjaan komputasi, pemakaian sumber daya, dan perkiraan energi.</p>
+  </header>
+  <main>
+    <div class="notice"><strong>Mode simulasi:</strong> aplikasi ini memakai perhitungan contoh di browser, bukan terhubung ke server HPC sungguhan.</div>
+    <section class="metrics">
+      <article class="metric"><span>Total pekerjaan</span><strong id="totalJobs">0</strong></article>
+      <article class="metric"><span>CPU terpakai</span><strong id="cpuUsed">0%</strong></article>
+      <article class="metric"><span>Memori terpakai</span><strong id="memoryUsed">0 GB</strong></article>
+      <article class="metric"><span>Estimasi energi</span><strong id="energy">0 kWh</strong></article>
+    </section>
+    <section class="panel">
+      <h2>Tambahkan pekerjaan komputasi</h2>
+      <form id="jobForm">
+        <label>Nama pekerjaan<input id="jobName" maxlength="50" required placeholder="Contoh: Analisis citra satelit"></label>
+        <div class="form-grid">
+          <label>Jumlah core CPU<select id="cores"><option value="2">2 core</option><option value="4" selected>4 core</option><option value="8">8 core</option><option value="16">16 core</option></select></label>
+          <label>Memori<select id="memory"><option value="4">4 GB</option><option value="8" selected>8 GB</option><option value="16">16 GB</option><option value="32">32 GB</option></select></label>
+          <label>Perkiraan durasi<select id="duration"><option value="1">1 jam</option><option value="2" selected>2 jam</option><option value="4">4 jam</option><option value="8">8 jam</option></select></label>
+        </div>
+        <button type="submit">Tambahkan ke antrean</button>
+      </form>
+      <p id="formMessage" class="message" aria-live="polite"></p>
+    </section>
+    <section class="panel">
+      <div class="section-heading"><h2>Antrean pekerjaan</h2><button id="runButton" class="secondary">Jalankan simulasi antrean</button></div>
+      <div class="table-wrap">
+        <table><thead><tr><th>Nama pekerjaan</th><th>CPU</th><th>Memori</th><th>Durasi</th><th>Status</th><th>Aksi</th></tr></thead><tbody id="jobRows"></tbody></table>
+      </div>
+      <p class="muted">Simulasi menjalankan pekerjaan satu per satu dan menghitung pemakaian berdasarkan pekerjaan yang sedang aktif.</p>
+    </section>
+    <section class="panel">
+      <h2>Catatan efisiensi energi</h2>
+      <p id="energyNote">Tambahkan pekerjaan untuk melihat perkiraan energi.</p>
+      <p class="muted">Perkiraan sederhana: energi (kWh) = daya asumsi (kW) × durasi (jam). Angka daya pada aplikasi ini adalah asumsi latihan, bukan pengukuran server nyata.</p>
+    </section>
+  </main>
+  <footer>Proyek pembelajaran • HTML, CSS, JavaScript</footer>
+  <script src="app.js"></script>
+</body>
+</html>
