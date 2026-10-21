@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard IMK dan Visualisasi Data</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+  <p class="eyebrow">STUDI KASUS ZOOM KE-5</p>
+  <h1>Dashboard Informasi Layanan Kampus</h1>
+  <p>Contoh dashboard yang menggabungkan visualisasi data dengan prinsip antarmuka yang mudah dipahami.</p>
+</header>
+<main>
+  <section class="notice"><strong>Data simulasi:</strong> angka dibuat untuk latihan dan bukan data resmi kampus. Dashboard ini mendemonstrasikan cara menyajikan informasi, bukan sistem layanan kampus sungguhan.</section>
+  <section class="panel filters">
+    <label for="period">Periode
+      <select id="period"><option value="all">Semua bulan</option><option value="semester1">Jan–Mar</option><option value="semester2">Apr–Jun</option></select>
+    </label>
+    <label for="category">Kategori layanan
+      <select id="category"><option value="all">Semua kategori</option><option value="Akademik">Akademik</option><option value="Administrasi">Administrasi</option><option value="Teknis">Teknis</option></select>
+    </label>
+    <button id="reset" class="secondary">Reset filter</button>
+  </section>
+  <section class="metrics">
+    <article><span>Total permintaan</span><strong id="totalRequests">0</strong></article>
+    <article><span>Rata-rata selesai</span><strong id="avgResolved">0%</strong></article>
+    <article><span>Kategori terbanyak</span><strong id="topCategory">-</strong></article>
+  </section>
+  <section class="panel">
+    <div class="panel-heading"><div><h2>Permintaan per Bulan</h2><p>Grafik garis untuk melihat tren dari waktu ke waktu.</p></div></div>
+    <div class="chart"><canvas id="trendChart"></canvas></div>
+  </section>
+  <section class="panel">
+    <h2>Permintaan berdasarkan Kategori</h2>
+    <p class="muted">Grafik batang membantu membandingkan jumlah antar kategori.</p>
+    <div class="chart small"><canvas id="categoryChart"></canvas></div>
+  </section>
+  <section class="panel">
+    <h2>Daftar Data</h2>
+    <p class="muted">Tabel memberi detail angka di balik grafik agar pengguna tidak hanya mengandalkan visual.</p>
+    <div class="table-wrap"><table><thead><tr><th>Bulan</th><th>Kategori</th><th>Permintaan</th><th>Selesai</th><th>Persentase selesai</th></tr></thead><tbody id="dataRows"></tbody></table></div>
+  </section>
+  <section class="panel">
+    <h2>Catatan IMK dan aksesibilitas</h2>
+    <ul>
+      <li>Judul dan label ditulis jelas agar pengguna tidak perlu menebak arti grafik.</li>
+      <li>Filter diletakkan di bagian atas dan dapat direset.</li>
+      <li>Grafik dilengkapi tabel data sebagai alternatif membaca informasi.</li>
+      <li>Warna bukan satu-satunya pembeda; setiap grafik memiliki judul dan label.</li>
+      <li>Data ringkasan ditampilkan terlebih dahulu, detail tersedia di bagian bawah.</li>
+    </ul>
+    <p id="insight" aria-live="polite"></p>
+  </section>
+</main>
+<footer>Proyek latihan IMK dan visualisasi data • HTML, CSS, JavaScript</footer>
+<script src="app.js"></script>
+</body></html>
