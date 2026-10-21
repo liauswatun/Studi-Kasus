@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Pemantauan Deforestasi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <p class="eyebrow">STUDI KASUS ZOOM KE-6</p>
+  <h1>Pemantauan Perubahan Tutupan Hutan</h1>
+  <p>Dashboard latihan untuk meninjau indikasi gangguan hutan dan mengelompokkan kemungkinan penyebabnya.</p>
+</header>
+<main>
+  <div class="notice"><strong>Penting:</strong> data dalam dashboard ini adalah data simulasi untuk latihan. Ini bukan citra satelit Sentinel-1/Sentinel-2, bukan data deforestasi resmi, dan bukan hasil model CNN yang sudah dilatih.</div>
+  <section class="metrics">
+    <article><span>Total indikasi</span><strong id="total">0</strong></article>
+    <article><span>Perlu pemeriksaan</span><strong id="review">0</strong></article>
+    <article><span>Area dengan indikasi terbesar</span><strong id="largest">-</strong></article>
+  </section>
+  <section class="panel filters">
+    <label>Wilayah
+      <select id="region"><option value="all">Semua wilayah</option><option>Utara</option><option>Tengah</option><option>Selatan</option></select>
+    </label>
+    <label>Tahun
+      <select id="year"><option value="all">Semua tahun</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option></select>
+    </label>
+    <label>Jenis indikasi
+      <select id="cause"><option value="all">Semua jenis</option><option value="Pertanian">Pertanian</option><option value="Penebangan">Penebangan</option><option value="Pertambangan">Pertambangan</option><option value="Kebakaran">Kebakaran</option><option value="Gangguan alami">Gangguan alami</option></select>
+    </label>
+    <button id="reset" class="secondary">Reset filter</button>
+  </section>
+  <section class="panel">
+    <h2>Daftar indikasi perubahan</h2>
+    <p class="muted">Pilih wilayah, tahun, atau jenis indikasi untuk menyaring data. Status “Perlu verifikasi” berarti informasi belum dikonfirmasi di lapangan.</p>
+    <div class="table-wrap"><table><thead><tr><th>ID</th><th>Wilayah</th><th>Tahun</th><th>Perkiraan area (ha)</th><th>Kemungkinan penyebab</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table></div>
+  </section>
+  <section class="panel">
+    <h2>Ringkasan indikasi per penyebab</h2>
+    <div class="chart"><canvas id="causeChart"></canvas></div>
+  </section>
+  <section class="panel">
+    <h2>Alur kerja yang dijelaskan dalam materi</h2>
+    <ol>
+      <li>Gunakan citra satelit untuk mendeteksi perubahan tutupan hutan.</li>
+      <li>Sentinel-2 menyediakan citra optik, tetapi pengamatan dapat terganggu awan.</li>
+      <li>Sentinel-1 menggunakan radar dan dapat melengkapi pengamatan saat berawan.</li>
+      <li>Model AI seperti CNN dapat membantu mengelompokkan pola gangguan berdasarkan data latih berlabel.</li>
+      <li>Evaluasi hasil, termasuk macro F1-score, dan lakukan pemeriksaan lapangan bila diperlukan.</li>
+      <li>Untuk peringatan kebakaran yang cepat, gunakan data sensor termal sebagai pelengkap; dashboard ini sendiri tidak mendeteksi api secara langsung.</li>
+    </ol>
+  </section>
+  <section class="panel">
+    <h2>Batasan hasil</h2>
+    <p>Perubahan tutupan lahan pada citra tidak selalu memastikan penyebabnya. Gangguan akibat aktivitas manusia dan kejadian alami dapat terlihat mirip. Karena itu, hasil klasifikasi perlu diperiksa, dan akurasi keseluruhan sebaiknya dilihat bersama macro F1-score agar kategori yang jarang muncul tidak terabaikan.</p>
+    <p id="insight" class="insight" aria-live="polite"></p>
+  </section>
+</main>
+<footer>Proyek pembelajaran • HTML, CSS, JavaScript</footer>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
+</body></html>
