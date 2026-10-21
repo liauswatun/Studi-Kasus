@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Analisis Penjualan PT Maju Bersama</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header><p class="eyebrow"></p><h1>Analisis Penjualan dan Laba</h1>
+<p>Dashboard sederhana untuk melihat perubahan pendapatan, laba bersih, dan piutang.</p></header>
+<main>
+<div class="notice"><b>Catatan:</b> Angka pada proyek ini adalah data simulasi untuk latihan, bukan data asli dari pemateri.</div>
+<section class="cards">
+<article><span>Total Pendapatan</span><strong id="revenue">-</strong><small>Akumulasi periode</small></article>
+<article><span>Total Laba Bersih</span><strong id="profit">-</strong><small>Akumulasi periode</small></article>
+<article><span>Piutang Akhir Periode</span><strong id="receivables">-</strong><small>Juni 2026</small></article>
+</section>
+<section class="panel"><div class="heading"><div><h2>Tren per Bulan</h2><p>Pilih data yang ingin dilihat.</p></div>
+<label>Metrik <select id="metric"><option value="revenue">Pendapatan</option><option value="profit">Laba bersih</option><option value="receivables">Piutang</option></select></label></div>
+<div class="chart"><canvas id="trendChart"></canvas></div></section>
+<section class="panel"><h2>Perubahan Awal dan Akhir Periode</h2><div id="comparison" class="comparison"></div></section>
+<section class="panel"><h2>Kesimpulan Awal</h2><p id="insight"></p>
+<p class="muted">Penyebab perubahan laba perlu diperiksa lebih lanjut, misalnya biaya operasional, harga pokok, diskon, atau keterlambatan pembayaran.</p></section>
+</main><footer>Proyek latihan analisis data • HTML, CSS, JavaScript</footer><script src="app.js"></script>
+</body></html>
