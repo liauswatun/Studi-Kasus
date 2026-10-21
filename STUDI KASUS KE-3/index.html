@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studi Kasus GIS - Pemetaan Fasilitas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+<header>
+  <p class="eyebrow">STUDI KASUS ZOOM KE-3</p>
+  <h1>Pemetaan dan Analisis Spasial Sederhana</h1>
+  <p>Contoh penggunaan GIS untuk memetakan lokasi fasilitas dan melihat sebarannya.</p>
+</header>
+<main>
+  <div class="notice"><strong>Catatan data:</strong> Titik pada peta adalah data contoh/simulasi untuk latihan. Bukan data resmi fasilitas di Bengkulu.</div>
+  <section class="summary">
+    <article><span>Total titik</span><strong id="total">0</strong></article>
+    <article><span>Fasilitas kesehatan</span><strong id="healthCount">0</strong></article>
+    <article><span>Fasilitas pendidikan</span><strong id="schoolCount">0</strong></article>
+  </section>
+  <section class="panel controls">
+    <label for="category">Filter kategori
+      <select id="category">
+        <option value="Semua">Semua kategori</option>
+        <option value="Kesehatan">Kesehatan</option>
+        <option value="Pendidikan">Pendidikan</option>
+        <option value="Layanan publik">Layanan publik</option>
+      </select>
+    </label>
+    <label for="search">Cari nama lokasi
+      <input id="search" type="search" placeholder="Contoh: Klinik">
+    </label>
+    <button id="reset">Reset filter</button>
+  </section>
+  <section class="panel">
+    <h2>Peta interaktif</h2>
+    <p class="muted">Pilih penanda pada peta untuk melihat nama, kategori, dan keterangan lokasi.</p>
+    <div id="map" role="application" aria-label="Peta interaktif lokasi simulasi"></div>
+  </section>
+  <section class="panel">
+    <h2>Daftar titik yang ditampilkan</h2>
+    <div class="table-wrap">
+      <table><thead><tr><th>Nama lokasi</th><th>Kategori</th><th>Koordinat contoh</th><th>Keterangan</th></tr></thead><tbody id="rows"></tbody></table>
+    </div>
+  </section>
+  <section class="panel">
+    <h2>Kesimpulan awal</h2>
+    <p id="insight"></p>
+    <p class="muted">Dalam proyek GIS nyata, data perlu diverifikasi, sistem koordinat harus sesuai, dan hasil peta perlu diperiksa sebelum digunakan untuk keputusan.</p>
+  </section>
+</main>
+<footer>Proyek latihan GIS • HTML, CSS, JavaScript, Leaflet</footer>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
